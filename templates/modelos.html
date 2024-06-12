@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Visualizar Modelos IA</title>
+</head>
+<body>
+    <div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+        <div class="w-full max-w-4xl bg-gray-800 rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-4">Modelos IA Registrados</h2>
+            <div class="flex flex-row mb-4 space-x-4">
+                <div>
+                    <label for="plano" class="block mb-2">Filtrar por Plano:</label>
+                    <select id="plano" class="bg-gray-700 text-gray-200 border-0 rounded-md p-2">
+                        <option value="">Todos</option>
+                        <option value="pago">Pago</option>
+                        <option value="gratis">Grátis</option>
+                        <option value="teste gratis">Teste Grátis</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="categoria" class="block mb-2">Filtrar por Categoria:</label>
+                    <select id="categoria" class="bg-gray-700 text-gray-200 border-0 rounded-md p-2">
+                        <option value="">Todas</option>
+                        {% for categoria in categorias %}
+                            <option value="{{ categoria[0] }}">{{ categoria[0] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button onclick="applyFilter()" class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Aplicar Filtro</button>
+                </div>
+                <div class="flex items-end">
+                    <a href="/" class="bg-gradient-to-r from-blue-500 to-green-500 text-white font-bold py-2 px-4 rounded-md hover:from-blue-600 hover:to-green-600 transition ease-in-out duration-150">Voltar</a>
+                </div>
+            </div>
+            <table class="w-full table-auto mt-6">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2">ID</th>
+                        <th class="px-4 py-2">Nome</th>
+                        <th class="px-4 py-2">Descrição</th>
+                        <th class="px-4 py-2">Plano</th>
+                        <th class="px-4 py-2">Categorias</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    {% for modelo in modelos %}
+                    <tr>
+                        <td class="border px-4 py-2">{{ modelo[0] }}</td>
+                        <td class="border px-4 py-2">{{ modelo[1] }}</td>
+                        <td class="border px-4 py-2">{{ modelo[2] }}</td>
+                        <td class="border px-4 py-2">{{ modelo[3] }}</td>
+                        <td class="border px-4 py-2">{{ modelo[4] | join(', ') }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='modelos.js') }}"></script>
+</body>
+</html>
