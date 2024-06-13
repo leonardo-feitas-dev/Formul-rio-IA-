@@ -25,44 +25,44 @@
 <body>
     <canvas id="background"></canvas>
     <div class="flex flex-col items-center justify-center h-screen relative z-10">
-        <div class="w-full max-w-md bg-gray-800 rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-bold text-gray-200 mb-4">Registrar Modelo IA</h2>
-            <p class="text-gray-400 mb-4">Preencha os detalhes para registrar um novo modelo IA.</p>
+        <div class="w-full max-w-sm bg-gray-800 rounded-lg shadow-md p-4">
+            <h2 class="text-xl font-bold text-gray-200 mb-2">Registrar Modelo IA</h2>
+            <p class="text-gray-400 mb-2">Preencha os detalhes para registrar um novo modelo IA.</p>
 
             <form class="flex flex-col" id="iaForm">
-                <label class="w-full ">
+                <label class="w-full">
                     <span class="text-gray-200">Nome</span>
-                    <input required placeholder="Digite o nome do modelo" type="text" class="w-full bg-gray-700 text-gray-200 border-0 rounded-md p-2 mt-1 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" id="nome">
+                    <input required placeholder="Digite o nome do modelo" type="text" class="w-full bg-gray-700 text-gray-200 border-0 rounded-md p-1 mt-1 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" id="nome">
                 </label>
 
-                <label class="w-full ">
+                <label class="w-full">
                     <span class="text-gray-200">Descrição</span>
-                    <textarea required placeholder="Digite a descrição do modelo" class="w-full bg-gray-700 text-gray-200 border-0 rounded-md p-2 mt-1 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" id="descricao"></textarea>
+                    <textarea required placeholder="Digite a descrição do modelo" class="w-full bg-gray-700 text-gray-200 border-0 rounded-md p-1 mt-1 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" id="descricao"></textarea>
                 </label>
 
-                <label class="w-full ">
+                <label class="w-full">
                     <span class="text-gray-200">Plano</span>
-                    <select required class="w-full bg-gray-700 text-gray-200 border-0 rounded-md p-2 mt-1 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" id="plano">
+                    <select required class="w-full bg-gray-700 text-gray-200 border-0 rounded-md p-1 mt-1 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" id="plano">
                         <option value="pago">Pago</option>
                         <option value="gratis">Grátis</option>
                         <option value="teste gratis">Teste Grátis</option>
                     </select>
                 </label>
 
-                <label class="w-full ">
+                <label class="w-full">
                     <span class="text-gray-200">Categorias</span>
-                    <select required multiple class="w-full bg-gray-700 text-gray-200 border-0 rounded-md p-2 mt-1 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" id="categorias">
+                    <select required multiple class="w-full bg-gray-700 text-gray-200 border-0 rounded-md p-1 mt-1 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" id="categorias">
                         {% for categoria in categorias %}
                             <option value="{{ categoria[0] }}">{{ categoria[0] }}</option>
                         {% endfor %}
                     </select>
                 </label>
 
-                <button type="submit" class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Enviar</button>
+                <button type="submit" class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-1 px-2 rounded-md mt-2 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Enviar</button>
             </form>
-            <div class="flex space-x-4 mt-4">
-                <a href="/categorias" class="bg-gradient-to-r from-blue-500 to-green-500 text-white font-bold py-2 px-4 rounded-md w-1/2 text-center hover:from-blue-600 hover:to-green-600 transition ease-in-out duration-150">Adicionar nova categoria</a>
-                <a href="/modelos" class="bg-gradient-to-r from-blue-500 to-green-500 text-white font-bold py-2 px-4 rounded-md w-1/2 text-center hover:from-blue-600 hover:to-green-600 transition ease-in-out duration-150">Ver modelos registrados</a>
+            <div class="flex space-x-2 mt-2">
+                <a href="/categorias" class="bg-gradient-to-r from-blue-500 to-green-500 text-white font-bold py-1 px-2 rounded-md w-1/2 text-center hover:from-blue-600 hover:to-green-600 transition ease-in-out duration-150">Adicionar nova categoria</a>
+                <a href="/modelos" class="bg-gradient-to-r from-blue-500 to-green-500 text-white font-bold py-1 px-2 rounded-md w-1/2 text-center hover:from-blue-600 hover:to-green-600 transition ease-in-out duration-150">Ver modelos registrados</a>
             </div>
         </div>
     </div>
